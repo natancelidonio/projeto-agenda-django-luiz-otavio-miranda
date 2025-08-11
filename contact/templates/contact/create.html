@@ -1,26 +1,25 @@
-{% extends "global/base.html" %}
-
-{% block content %}
-    <div class="form-wrapper">
-        
-        <h2>Contact</h2>
-        
-        <form action="{% url "contact:create" %}" method="POST" enctype='multipart/form-data'>
-            {% csrf_token %}
-
-
-
-            <div class="form-content">
-                {% for field in form %}
+    {% extends "global/base.html" %}
+    
+    {% block content %}
+        <div class="form-wrapper">
+            
+            <h2>Contact</h2>
+            
+            <form action="{% url "contact:create" %}" method="POST" enctype='multipart/form-data'>
+                {% csrf_token %}
+                
+                <div class="form-content">
+                    {% for field in form %}
+                        <div class="form-group">
+                            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                            {{ field }}
+                            {{ field.errors }}
+                        </div>
+                    {% endfor %}
                     <div class="form-group">
-                        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-                        <input type="text" name="first_name" maxlength="255">
+                        <button class="btn" type="submit">Send</button>
                     </div>
-                {% endfor %}
-                <div class="form-group">
-                    <button class="btn" type="submit">Send</button>
                 </div>
-            </div>
-        </form>
-    </div>
-{% endblock content %}
+            </form>
+        </div>
+    {% endblock content %}
