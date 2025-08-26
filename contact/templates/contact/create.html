@@ -18,6 +18,14 @@
                                 <p class="help-text">{{ field.help_text }}</p>
                             {% endif %}
                         </div>
+                        {% if field.name == 'picture' and field.value.url %}
+                            <div class="form-group">
+                                <p>
+                                    Esta é a imagem atual:
+                                    <img src="{{ field.value.url }}" alt="{{ contact.first_name }} {{ contact.last_name }}">
+                                </p>
+                            </div>
+                        {% endif %}                            
                     {% endfor %}
                     <div class="form-group">
                         <button class="btn" type="submit">Send</button>
