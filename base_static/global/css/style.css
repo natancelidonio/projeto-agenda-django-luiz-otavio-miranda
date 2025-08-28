@@ -234,6 +234,12 @@ svg {
   border: 1px solid rgba(255, 0, 0, 90%);
 }
 
+.message.info {
+  background: rgba(0, 17, 255, 0.3);
+  border: 1px solid rgba(0, 17, 255, 0.9);
+  font-weight: bold;
+}
+
 .message.warning {
   background: rgba(255, 255, 0, 0.3);
   border: 1px solid rgba(255, 255, 0, 90%);
